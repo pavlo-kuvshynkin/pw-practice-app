@@ -25,5 +25,6 @@ Before start working on your repository and creating branches you need first go 
 4. Create a commit
 
     git commit -m "Your message to the commit"
+    git log - to check commits details
 
 After a commit you may continue making changes to the same files and you will see changes are highlighted in VS code in the line numbers where you added changes. If you modified something it will be highlighted by blue.
