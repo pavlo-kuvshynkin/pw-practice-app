@@ -1,0 +1,27 @@
+Git guides to start working:
+
+Before start working on your repository and creating branches you need first go to settings -> branches and create a rule for branches:
+* give a branch name 'master'
+* enable 'Require a pull request before merging' flag to protect your master
+* enable 'Do not allow bypassing the above settings' to not allow to commit changes without a pull request even for you
+
+1. Commands that will create your profile to recognize you when you will contribute in development
+	git config --global user.email ...
+	git config --global user.name "..."
+	git config --global user.email/name - to check your email/name profile are active
+
+2. Commands for creating a branch
+	git branch branch-name
+	git checkout branch-name - to switch to a branch where you would like to start working
+	git branch - check branches to make use the one you just created is available and '*' shows a branch you are working in
+
+3. After making changes in the code/adding new files you will see untracked changes in source control and explorer for the files you worked with, but they not yet in the version control. Here are commands to work with those untracked files:
+
+	git status - shows all files that untracked yet
+	git add . / file name - add all files to be tracked / a name of the file you want to be tracked. After that your file(s) will be staged and any changes to them will require executing 'git add .' again or click a plus button from source control panel.
+
+	git diff - shows what has been changed in the code/file after last staging changes (will not work right after staging changes)
+
+4. Create a commit
+
+    git commit -m "Your message to the commit"
