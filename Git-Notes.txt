@@ -28,3 +28,25 @@ Before start working on your repository and creating branches you need first go 
     git log - to check commits details
 
 After a commit you may continue making changes to the same files and you will see changes are highlighted in VS code in the line numbers where you added changes. If you modified something it will be highlighted by blue.
+
+5. Whenever you push your changes to the remote repository for the first time, Git will not find such repo on remote, so you will need to set the remote as upstream using the following command:
+
+    git push --set-upstream origin branch-Name
+
+After that, create a pull request on the GitHub site and after a merge switch to the remote master branch and make run a command 'git pull'
+
+6. Revert. There are 2 ways to revert/reset changes. Before making a revert, we need to check current point of where we are (HEAD), go to and check on GitHub or run the following command:
+
+	git log --oneline  -  to check all the commits and where we are at this point right now (HEAD)
+
+- First approach. To reset changes we need choose a point of the code we had previously, copy a 'SHA' (id) of that point and paste into the following Git command:
+	git reset cef0f99
+
+After this reset you'll be at the point you choose locally and source control will show unstaged all previous commits, so we can decide to discard those commits leaving only at the point we choose or stage them again. Also, remember that on remote master branch has a latest version of the code remaining and if you discard commits on the local branch you can always sync. your local branch with latest version.
+In case you need to reset changes and remove previous commits immediately you can run the following command:
+	git reset cef0f99 --hard
+
+- Second approach. To revert changes and safely push them to remote master branch we need to choose desired a point of the code, create a new branch ('revet-cef0f99' for example) and run a command:
+	git revert cef0f99
+
+After this revert you will expectedly get merge conflicts because Git see the changes that goes after the point we choose and the version we trying to recover on that commit does not like these changes, so we need to recover this manually. In VS code follow to the Resolving merge editor and compare Incoming recover changes with Current on remote master. Then complete merge, leave a commit comment and push to remote repository. Complete merge on GitHub and after that sync with remote master.
