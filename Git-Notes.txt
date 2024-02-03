@@ -28,9 +28,3 @@ Before start working on your repository and creating branches you need first go 
     git log - to check commits details
 
 After a commit you may continue making changes to the same files and you will see changes are highlighted in VS code in the line numbers where you added changes. If you modified something it will be highlighted by blue.
-
-5. Whenever you push your changes to the remote repository for the first time, Git will not find such repo on remote, so you will need to set the remote as upstream using the following command:
-
-    git push --set-upstream origin branch-Name
-
-After that, create a pull request on the GitHub site and after a merge switch to the remote master branch and make run a command 'git pull'
