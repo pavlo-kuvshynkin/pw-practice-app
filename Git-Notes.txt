@@ -50,3 +50,11 @@ In case you need to reset changes and remove previous commits immediately you ca
 	git revert cef0f99
 
 After this revert you will expectedly get merge conflicts because Git see the changes that goes after the point we choose and the version we trying to recover on that commit does not like these changes, so we need to recover this manually. In VS code follow to the Resolving merge editor and compare Incoming recover changes with Current on remote master. Then complete merge, leave a commit comment and push to remote repository. Complete merge on GitHub and after that sync with remote master.
+
+7. Merge conflict happens when a dev. A creates a local branch and pushing changes for the piece of code that dev. B is going to work on in his local branch >>> then a dev. B pushing his branch with some changes that are made to the same piece of code that dev. A pushed earlier >>> While there are two active branches that were pushed, dev. A making a PR and merging his code to the master >>> them a dev. B decides to create a PR too and when creating a PR he sees a message "can't automatically merge" and if he proceed creating a PR Git will throw a conflict that must be resolved >>> It's better to resolve it in VS code by running a command: 
+      'git merge origin master' 
+Then click on the 'Resolve in Merge Editor' button >>> In the editor dev. B has 3 resolution options:
+- accept 'Incoming' changes going from origin master branch
+- accept 'Current' changes from your local branch
+- make a change that different and agreed with a dev. (e.g. accept incoming changes and modify them)
+After clicking on the 'Complete merge' button, VS code creates automatic commit message and we can commit and sync those changes >>> then navigate to GitHub and safely create a PR and merge it.
