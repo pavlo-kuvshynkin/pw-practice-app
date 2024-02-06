@@ -58,3 +58,16 @@ Then click on the 'Resolve in Merge Editor' button >>> In the editor dev. B has 
 - accept 'Current' changes from your local branch
 - make a change that different and agreed with a dev. (e.g. accept incoming changes and modify them)
 After clicking on the 'Complete merge' button, VS code creates automatic commit message and we can commit and sync those changes >>> then navigate to GitHub and safely create a PR and merge it.
+
+8. Useful tips.
+  8.1 In case if you committed something from local master branch and forgot to do that from a separate branch that supposed to be created and switched when going to make any new changes you need to execute the following command:
+      git reset origin/master  -  this command sync your local master branch with remote and unstage changes that were committed earlier mistakenly.
+After that, you can create a new branch as supposed to be and commit your changes from that branch.
+  8.2 If you work on some local branch and need to switch to another branch but not ready to commit you code changes, you can to save it by executing:
+      git stash save "some message about made changes"
+After that, you can safely checkout to another branch and once back recover your saved change by following commands:
+      git stash list  -  showing saved changes with a message and indexed
+      git stash apply stash@{0}  -  recover saved changes
+  8.3 In order to delete local and remote branches that were removed after merges to not be suggested when looking for some actual branch you can execute following commands:
+      git branch -D branch-Name  -  removing local branch
+      git fetch --prune  -  removing branches that are not on the server from local computer.
